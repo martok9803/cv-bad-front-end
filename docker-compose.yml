@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    image: cv-webapp-app:latest
+    container_name: cv-webapp-app
+    environment:
+      - APP_ENV=prod
+    ports:
+      - "8000:8000"
+    restart: unless-stopped

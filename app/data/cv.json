@@ -1,0 +1,92 @@
+{
+  "name": "Martin Kirov",
+  "handle": "martok9803",
+  "title": "Linux / Windows System Engineer",
+  "location": "Plovdiv, Bulgaria",
+  "email": "martinkirov9803@gmail.com",
+  "phone": "+359897833385",
+  "github": "https://github.com/martok9803",
+  "website": "https://github.com/martok9803",
+  "summary": "Enthusiastic and hands-on system engineer who loves experimenting with computers and new technologies. Passionate about automation, trading automation, and the inner mechanics of blockchains. Comfortable building and defending systems against misconfiguration and exploits — curious, proactive, and calm under pressure.",
+  "skills": {
+    "Linux": ["Ubuntu/Debian", "systemd", "Nginx reverse proxy", "ufw/iptables", "Docker & Compose", "SSH hardening"],
+    "Windows": ["Active Directory (AD DS)", "GPO", "DNS/DHCP", "File/Print Services", "Windows Server 2019/2022", "Roaming Profiles"],
+    "Networking": ["VLAN segmentation (Guest/Staff/Admin/POS)", "L3 switches", "VPN tunnels", "QoS", "Firewall policy & logging"],
+    "Automation": ["Bash", "Python", "cron", "Git/GitHub"],
+    "Security": ["Access control", "GDPR-aware configs", "Incident detection & prevention"],
+    "Blockchain": ["ERC-20 & Solana (SPL)", "Trading automation", "Wallet tooling", "Encryption concepts"]
+  },
+  "experience": [
+    {
+      "company": "WiProServices",
+      "role": "System Administration (Win/Linux)",
+      "period": "Nov 2024 – Sep 2025",
+      "location": "Vienna, Austria",
+      "highlights": [
+        "Managed Windows-based infrastructure for a hotel complex (~80 users, multiple VLANs).",
+        "Configured and maintained AD DS, DNS, DHCP, GPO, and file/print services.",
+        "Monitored performance, handled updates, implemented security policies and backups.",
+        "Managed VLAN segmentation, VPN tunnels, and firewall logging under GDPR."
+      ]
+    },
+    {
+      "company": "WorkNomads",
+      "role": "SysAdmin (Windows)",
+      "period": "Feb 2024 – Oct 2024",
+      "location": "Sofia, Bulgaria",
+      "highlights": [
+        "Designed multi-VLAN network with access levels (guest, admin, IP telephony, CCTV).",
+        "Integrated SALTO access control with electronic locks.",
+        "Managed DHCP/DNS, file servers, backup and monitoring systems.",
+        "Analyzed firewall logs and optimized performance (QoS, PoE, Wi-Fi)."
+      ]
+    },
+    {
+      "company": "Sutherland",
+      "role": "Technical Support Specialist — Networking",
+      "period": "Jul 2023 – Jan 2024",
+      "location": "Sofia, Bulgaria",
+      "highlights": [
+        "Remote configuration and troubleshooting for Eero mesh networks.",
+        "Solved connectivity/stability issues for smart devices and home networks.",
+        "Kept documentation and CRM for tracking client interactions."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "face-verify-web",
+      "desc": "Face recognition for newbies: simple web UI to capture/compare faces and demo verification flows.",
+      "link": "https://github.com/martok9803/face-verify-web"
+    },
+    {
+      "name": "sol-bundle",
+      "desc": "Jito bundling for pro traders: multi-wallet Solana bundler with tips, slippage, and searcher integration.",
+      "link": "https://github.com/martok9803/sol-bundle"
+    },
+    {
+      "name": "Terraform-For-Cloud-State-Management",
+      "desc": "Experiments with AWS + Terraform state management patterns (very useful in real infra).",
+      "link": "https://github.com/martok9803/Terraform-For-Cloud-State-Management"
+    },
+    {
+      "name": "cv-webapp-docker",
+      "desc": "This interactive CV: Flask + Gunicorn. Docker/Compose ready for deployment.",
+      "link": "https://github.com/martok9803"
+    }
+  ],
+  "education": [
+    {
+      "name": "Self-directed Learning",
+      "focus": "Linux, Windows Server, networks, scripting, containers, cybersecurity"
+    },
+    {
+      "name": "Languages",
+      "focus": "French (Intermediate) · English (Fluent)"
+    },
+    {
+      "name": "High School — Bertholt Brecht",
+      "focus": "IT fundamentals, networking, systems basics"
+    }
+  ]
+}

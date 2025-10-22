@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Martin Kirov · CV</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="avatar" id="avatar">MK</div>
+        <div>
+          <h1 id="cv-name">Martin Kirov</h1>
+          <p class="role" id="cv-title">Linux / Windows System Engineer</p>
+        </div>
+      </div>
+      <a class="btn primary" id="githubBtn" href="#" target="_blank" rel="noopener">★ GitHub</a>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <!-- LEFT SIDEBAR -->
+    <aside class="side">
+      <section class="card idcard">
+        <h3>Profile</h3>
+        <ul class="facts">
+          <li><span id="cv-location"></span></li>
+          <li><a id="cv-email" href="#"></a></li>
+          <li><a id="cv-phone" href="#"></a></li>
+          <li><a id="cv-website" href="#" target="_blank" rel="noopener"></a></li>
+        </ul>
+      </section>
+
+      <nav class="nav">
+        <button class="pill active" data-target="summary">Summary</button>
+        <button class="pill" data-target="skills">Skills</button>
+        <button class="pill" data-target="experience">Experience</button>
+        <button class="pill" data-target="projects">Projects</button>
+        <button class="pill" data-target="education">Education</button>
+      </nav>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <section class="content">
+      <section id="summary" class="panel active">
+        <h2>Summary</h2>
+        <p id="cv-summary" class="lead"></p>
+      </section>
+
+      <section id="skills" class="panel">
+        <h2>Skills</h2>
+        <div id="cv-skills" class="skill-grid"></div>
+      </section>
+
+      <section id="experience" class="panel">
+        <h2>Experience</h2>
+        <div id="cv-experience" class="timeline"></div>
+      </section>
+
+      <section id="projects" class="panel">
+        <h2>Projects</h2>
+        <div id="cv-projects" class="cards"></div>
+      </section>
+
+      <section id="education" class="panel">
+        <h2>Education</h2>
+        <div id="cv-education" class="edu-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <small>Running in <strong>{{ app_env }}</strong> · Flask/Gunicorn · Health: <a href="/healthz">/healthz</a></small>
+    </div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
