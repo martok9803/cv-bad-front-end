@@ -1,59 +1,107 @@
-:root {
-  --bg: #0e1117;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --text: #e6edf3;
-  --muted: #9aa7b5;
-  --accent: #58a6ff;
+/* ===== Theme */
+:root{
+  --bg: #0b0f14;
+  --panel: rgba(255,255,255,0.06);
+  --ink: #e9eef7;
+  --muted: #9fb0c9;
+  --accent: #6ee7ff;     /* cyan */
+  --accent2: #8b5cff;    /* violet */
+  --card: rgba(16,24,35,.5);
   --radius: 16px;
-  --shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  --shadow: 0 12px 40px rgba(0,0,0,.45);
 }
 
-body {
-  margin: 0;
-  font-family: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink)}
+body{
+  font-family:"Plus Jakarta Sans","Segoe UI",Roboto,system-ui,-apple-system,sans-serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
 
-.container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+.container{max-width:980px;margin:0 auto;padding:2rem 1.5rem}
 
-.hero { text-align: center; margin-bottom: 2.2rem; }
-h1 { margin: 0 0 .2rem; font-size: 2rem; }
-.subtitle { margin: 0 0 .6rem; opacity: .9; }
-.muted { color: var(--muted); margin-top: .4rem; }
-
-.chips { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; margin: .6rem 0; }
-.chip {
-  padding: .45rem .75rem; border-radius: 999px; background: var(--card-bg);
-  color: var(--text); text-decoration: none; border: 1px solid rgba(88,166,255,.25);
+/* ===== Hero */
+.hero{position:relative;text-align:center;margin:2rem 0 2.4rem}
+.brand-gradient{
+  font-size:clamp(2rem,3.5vw,3rem);
+  font-weight:800; letter-spacing:.2px; margin:.2rem 0 .3rem;
+  background:linear-gradient(92deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
 }
-.chip:hover { border-color: var(--accent); }
-
-h2 { border-left: 4px solid var(--accent); padding-left: 10px; margin: 1.6rem 0 .6rem; }
-
-.glass {
-  background: var(--card-bg); border-radius: var(--radius); padding: 1.2rem 1.6rem;
-  box-shadow: var(--shadow); backdrop-filter: blur(8px); margin-top: 1rem;
+.subtitle{margin:.1rem 0 .75rem;opacity:.9}
+.hero-meta{margin-top:.4rem}
+.hero-glow{
+  position:absolute; inset:-20% -10% auto -10%; height:180px; z-index:-1;
+  background:radial-gradient(60% 60% at 50% 50%, rgba(110,231,255,.18), transparent 60%);
+  filter:blur(20px);
 }
 
-.card h3 { margin: 0 0 .4rem; }
-.meta { color: var(--muted); margin: 0 0 .8rem; }
-
-.bullets { padding-left: 1.1rem; margin: 0; }
-.bullets li { margin: .35rem 0; }
-.bullets.compact li { margin: .2rem 0; }
-
-.projects .grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
+/* ===== Chips */
+.chips{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:.8rem 0}
+.chip{
+  padding:.5rem .8rem; border-radius:999px; background:var(--panel);
+  border:1px solid rgba(110,231,255,.25); color:var(--ink); text-decoration:none;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
 }
-.project { display: block; color: var(--text); text-decoration: none; transition: transform .2s ease, box-shadow .3s ease; }
-.project:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(88, 166, 255, .2); }
-.project .link { color: var(--accent); font-weight: 600; }
+.chip:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 8px 24px rgba(110,231,255,.15)}
 
-footer { text-align: center; margin: 2.2rem 0 .4rem; opacity: .75; font-size: .95rem; }
+/* ===== Sections */
+h2{
+  margin:1.6rem 0 .7rem; font-weight:800; letter-spacing:.2px;
+  background:linear-gradient(92deg,#b5c7ff,#d7e5ff);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
 
-/* subtle reveal */
-.fade-in { animation: fadeIn 1.0s ease-in; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.glass{
+  background:var(--panel);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);
+  padding:1.2rem 1.6rem;
+  box-shadow:var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:1.2rem 1.4rem;box-shadow:var(--shadow)}
+.card-title{margin:.1rem 0 .45rem}
+.meta{color:var(--muted);margin:0 0 .8rem}
+
+.bullets{padding-left:1.1rem;margin:0}
+.bullets li{margin:.35rem 0}
+
+/* ===== Projects */
+.projects .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.project{
+  display:block;color:var(--ink);text-decoration:none;border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);padding:1rem 1.2rem;background:var(--card);box-shadow:var(--shadow);
+  transition:transform .22s ease, box-shadow .3s ease, border-color .2s ease;
+}
+.project:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(139,92,255,.22);border-color:rgba(139,92,255,.35)}
+.project-title{margin:.1rem 0 .4rem;font-weight:700}
+.link{color:#cde6ff;font-weight:700}
+
+/* ===== Animations & effects */
+.fade-in{animation:fadeIn .9s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+.reveal.visible{opacity:1; transform:translateY(0)}
+
+.lift{transition:transform .2s ease, box-shadow .3s ease}
+.lift:hover{transform:translateY(-4px); box-shadow:0 14px 44px rgba(0,0,0,.5)}
+
+/* Subtle 3D tilt for project cards (driven by JS adding .tilt-active) */
+.tilt.tilt-active{transform:perspective(700px) rotateX(var(--rx,0)) rotateY(var(--ry,0)) scale(1.01)}
+
+/* ===== Footer */
+footer{text-align:center;margin:2.4rem 0 .6rem;opacity:.75;font-size:.95rem}
+
+/* ===== Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important}
+}
+
+/* ===== Responsive */
+@media (max-width:900px){
+  .container{padding:1.6rem 1rem}
+}

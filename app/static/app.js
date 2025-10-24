@@ -1,45 +1,67 @@
 // app/static/app.js
-// Small enhancements and smooth animations for your CV site
+// Premium interactions: scroll-reveal, 3D tilt on projects, subtle hovers
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("🚀 Martin Kirov CV loaded");
-
-  // Fade in content smoothly
-  document.body.classList.add("fade-in");
-
-  // Add hover effect to projects
-  document.querySelectorAll(".project").forEach(project => {
-    project.addEventListener("mouseover", () => {
-      project.style.transform = "translateY(-6px)";
-      project.style.boxShadow = "0 12px 30px rgba(88, 166, 255, 0.25)";
-    });
-
-    project.addEventListener("mouseleave", () => {
-      project.style.transform = "translateY(0)";
-      project.style.boxShadow = "0 8px 25px rgba(0, 0, 0, 0.4)";
-    });
-  });
-
-  // Animate avatar when hovering (a subtle pulse)
-  const avatar = document.querySelector(".avatar");
-  if (avatar) {
-    avatar.addEventListener("mouseenter", () => {
-      avatar.style.transition = "transform 0.4s ease";
-      avatar.style.transform = "scale(1.1) rotate(3deg)";
-    });
-    avatar.addEventListener("mouseleave", () => {
-      avatar.style.transform = "scale(1) rotate(0deg)";
-    });
-  }
-
-  // Scroll reveal for sections
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+  // Scroll reveal using IntersectionObserver
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("visible");
+        observer.unobserve(e.target);
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.18 });
 
-  document.querySelectorAll("section").forEach(sec => observer.observe(sec));
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+  // Subtle 3D tilt on .tilt cards (projects)
+  const tiltCards = document.querySelectorAll(".tilt");
+  tiltCards.forEach(card => {
+    let rect;
+    const maxTilt = 10; // deg
+
+    const onMove = (e) => {
+      rect = rect || card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+      const ry = (px - 0.5) * (maxTilt * 2);
+      const rx = (0.5 - py) * (maxTilt * 2);
+      card.style.setProperty("--rx", rx.toFixed(2) + "deg");
+      card.style.setProperty("--ry", ry.toFixed(2) + "deg");
+      card.classList.add("tilt-active");
+    };
+
+    const onLeave = () => {
+      card.classList.remove("tilt-active");
+      card.style.removeProperty("--rx");
+      card.style.removeProperty("--ry");
+      rect = undefined;
+    };
+
+    card.addEventListener("mousemove", onMove);
+    card.addEventListener("mouseleave", onLeave);
+    card.addEventListener("touchmove", (e) => {
+      if (!e.touches[0]) return;
+      const t = e.touches[0];
+      onMove({ clientX: t.clientX, clientY: t.clientY });
+    }, { passive: true });
+    card.addEventListener("touchend", onLeave);
+  });
+
+  // Micro-interaction: ripple on chips
+  document.querySelectorAll(".chip").forEach(chip => {
+    chip.addEventListener("click", (e) => {
+      const r = document.createElement("span");
+      r.style.position = "absolute";
+      r.style.inset = "0";
+      r.style.borderRadius = "999px";
+      r.style.pointerEvents = "none";
+      r.style.boxShadow = "0 0 0 0 rgba(110,231,255,.25)";
+      r.style.transition = "box-shadow .45s ease";
+      chip.style.position = "relative";
+      chip.appendChild(r);
+      requestAnimationFrame(() => r.style.boxShadow = "0 0 0 18px rgba(110,231,255,0)");
+      setTimeout(() => r.remove(), 500);
+    });
+  });
 });

@@ -4,6 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Martin Kirov · System Engineer</title>
+
+  <!-- Modern fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Headline: Plus Jakarta Sans | Accent monospace: JetBrains Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="/static/styles.css" />
   <script defer src="/static/app.js"></script>
 </head>
@@ -11,7 +18,7 @@
   <div class="container fade-in">
 
     <header class="hero">
-      <h1>Martin Kirov</h1>
+      <h1 class="brand-gradient">Martin Kirov</h1>
       <p class="subtitle">System Engineer · DevOps · Blockchain Enthusiast</p>
 
       <!-- Contact chips -->
@@ -21,11 +28,12 @@
         <a class="chip" href="{{ cv.github }}" target="_blank" rel="noopener">★ GitHub</a>
       </div>
 
-      <p class="muted">{{ cv.location }} · Born: {{ cv.about.dob }}</p>
+      <p class="muted hero-meta">{{ cv.location }} · Born: {{ cv.about.dob }}</p>
+      <div class="hero-glow" aria-hidden="true"></div>
     </header>
 
     <!-- ABOUT -->
-    <section class="summary glass">
+    <section class="summary glass reveal">
       <h2>About Me</h2>
       <p>{{ cv.summary }}</p>
       {% if cv.interests %}
@@ -42,8 +50,8 @@
       <h2>Experience</h2>
 
       {% for job in cv.experience %}
-      <div class="card glass">
-        <h3>{{ job.company }}</h3>
+      <div class="card glass lift reveal">
+        <h3 class="card-title">{{ job.company }}</h3>
         <p class="meta"><strong>{{ job.role }}</strong> · {{ job.period }} · {{ job.location }}</p>
         {% if job.highlights %}
         <ul class="bullets">
@@ -61,8 +69,8 @@
       <h2>Highlighted Projects</h2>
       <div class="grid">
         {% for project in cv.projects %}
-        <a href="{{ project.link }}" target="_blank" class="project glass">
-          <h3>{{ project.name }}</h3>
+        <a href="{{ project.link }}" target="_blank" class="project glass tilt reveal">
+          <h3 class="project-title">{{ project.name }}</h3>
           <p>{{ project.desc }}</p>
           <span class="link">Open →</span>
         </a>
