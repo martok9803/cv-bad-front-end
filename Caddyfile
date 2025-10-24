@@ -1,0 +1,7 @@
+{
+  email martinkirov9803@gmail.com
+}
+
+{$DOMAIN} {
+  reverse_proxy app:8000
+}

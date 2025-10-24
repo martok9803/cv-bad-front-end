@@ -1,3 +1,4 @@
+# app/main.py
 from flask import Flask, jsonify, render_template, send_from_directory
 import json, os, socket
 from pathlib import Path
@@ -24,13 +25,16 @@ def create_app():
         data["env"] = os.getenv("APP_ENV", "dev")
         return jsonify(data)
 
+    @app.route("/")
+    def index():
+        # ✅ pass cv into the template
+        return render_template("index.html",
+                               app_env=os.getenv("APP_ENV", "dev"),
+                               cv=load_cv())
+
     @app.route("/download/cv.json")
     def download_cv_json():
         return send_from_directory((APP_ROOT / "data"), "cv.json", as_attachment=True)
-
-    @app.route("/")
-    def index():
-        return render_template("index.html", app_env=os.getenv("APP_ENV", "dev"))
 
     return app
 
