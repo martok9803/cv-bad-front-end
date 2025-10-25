@@ -1,7 +1,30 @@
 {
   email martinkirov9803@gmail.com
+
+  # Global access logging
+  log {
+    output file /data/caddy/access.log {
+      roll_size 100mb
+      roll_keep 10
+      roll_keep_for 2160h  # keep for 90 days
+    }
+    format json
+    level INFO
+  }
 }
 
-{$DOMAIN} {
+sats.it.com {
+  encode gzip zstd
+
+  # Access log for this site too (redundant but useful)
+  log {
+    output file /data/caddy/sats_access.log {
+      roll_size 100mb
+      roll_keep 10
+      roll_keep_for 2160h
+    }
+    format json
+  }
+
   reverse_proxy app:8000
 }
