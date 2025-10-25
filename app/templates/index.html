@@ -2,85 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Martin Kirov · System Engineer</title>
-
-  <!-- Modern fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Headline: Plus Jakarta Sans | Accent monospace: JetBrains Mono -->
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ cv.name }} · Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/styles.css" />
   <script defer src="/static/app.js"></script>
 </head>
 <body>
-  <div class="container fade-in">
+  <div class="bg-overlay"></div>
+  <header class="navbar">
+    <div class="brand">Martin Kirov</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </header>
 
-    <header class="hero">
-      <h1 class="brand-gradient">Martin Kirov</h1>
-      <p class="subtitle">System Engineer · DevOps · Blockchain Enthusiast</p>
+  <section class="hero">
+    <h1 class="fade-in">Hi, I’m <span>Martin Kirov</span></h1>
+    <h2 class="typewriter">System Administrator · Blockchain Enthusiast · Automation Developer</h2>
+    <p class="fade-in-delayed">
+      I love experimenting with technology, scripting automation, building cloud systems and exploring blockchain infrastructure.  
+      Always curious. Always learning. Always optimizing.
+    </p>
+    <div class="links fade-in-delayed">
+      <a href="mailto:martinkirov9803@gmail.com" class="btn">📧 Email</a>
+      <a href="https://github.com/martok9803" target="_blank" class="btn outline">💻 GitHub</a>
+    </div>
+  </section>
 
-      <!-- Contact chips -->
-      <div class="chips">
-        <a class="chip" href="mailto:{{ cv.email }}">✉️ {{ cv.email }}</a>
-        <a class="chip" href="tel:{{ cv.phone | replace(' ', '') }}">📞 {{ cv.phone }}</a>
-        <a class="chip" href="{{ cv.github }}" target="_blank" rel="noopener">★ GitHub</a>
+  <section id="about" class="card fade-up">
+    <h3>About Me</h3>
+    <p>Born on <strong>2 March 1998</strong> in Plovdiv, Bulgaria.  
+       Passionate about Linux & Windows systems, networking, scripting, and blockchain technologies.  
+       I enjoy automating trading strategies, experimenting with encryption and understanding how distributed systems really work.</p>
+  </section>
+
+  <section id="experience" class="card fade-up">
+    <h3>Experience</h3>
+    <div class="timeline">
+      <div class="job">
+        <h4>WiPro Services · Vienna (Nov 2024 – Sept 2025)</h4>
+        <p>Administered Windows & Linux infrastructure for a hotel network with 80+ users.  
+        Managed Active Directory, GPOs, VLANs, firewalls, and ensured GDPR-compliant security and backup strategies.</p>
       </div>
-
-      <p class="muted hero-meta">{{ cv.location }} · Born: {{ cv.about.dob }}</p>
-      <div class="hero-glow" aria-hidden="true"></div>
-    </header>
-
-    <!-- ABOUT -->
-    <section class="summary glass reveal">
-      <h2>About Me</h2>
-      <p>{{ cv.summary }}</p>
-      {% if cv.interests %}
-      <ul class="bullets compact">
-        {% for i in cv.interests %}
-        <li>{{ i }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="experience">
-      <h2>Experience</h2>
-
-      {% for job in cv.experience %}
-      <div class="card glass lift reveal">
-        <h3 class="card-title">{{ job.company }}</h3>
-        <p class="meta"><strong>{{ job.role }}</strong> · {{ job.period }} · {{ job.location }}</p>
-        {% if job.highlights %}
-        <ul class="bullets">
-          {% for bullet in job.highlights %}
-          <li>{{ bullet }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
+      <div class="job">
+        <h4>WorkNomads · Sofia (Feb 2024 – Oct 2024)</h4>
+        <p>Built multi-VLAN networks, configured SALTO access control, and optimized firewall traffic and QoS policies.  
+        Improved uptime and security through proactive monitoring and automation scripts.</p>
       </div>
-      {% endfor %}
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="projects">
-      <h2>Highlighted Projects</h2>
-      <div class="grid">
-        {% for project in cv.projects %}
-        <a href="{{ project.link }}" target="_blank" class="project glass tilt reveal">
-          <h3 class="project-title">{{ project.name }}</h3>
-          <p>{{ project.desc }}</p>
-          <span class="link">Open →</span>
-        </a>
-        {% endfor %}
+      <div class="job">
+        <h4>Sutherland · Sofia (Jul 2023 – Jan 2024)</h4>
+        <p>Technical support for mesh networks (Eero). Helped users configure Wi-Fi, integrate IoT devices, and troubleshoot connectivity issues.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <p>© 2025 · Built by Martin Kirov · Hosted on EC2 with Docker & Caddy</p>
-    </footer>
-  </div>
+  <section id="projects" class="card fade-up">
+    <h3>Featured Projects</h3>
+    <div class="projects">
+      <a class="project" href="https://github.com/martok9803/face-verify-web" target="_blank">
+        <h4>🧠 Face Verify Web</h4>
+        <p>Flask-based face-recognition web app — minimal, educational, and fun.</p>
+      </a>
+      <a class="project" href="https://github.com/martok9803/sol-bundle" target="_blank">
+        <h4>💎 Sol Bundle</h4>
+        <p>Jito bundling scripts for advanced Solana traders — performance and automation.</p>
+      </a>
+      <a class="project" href="https://github.com/martok9803/Terraform-For-Cloud-State-Management" target="_blank">
+        <h4>☁️ Terraform Cloud Automation</h4>
+        <p>Experimenting with AWS and Terraform for state management and automation pipelines.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Martin Kirov — Crafted with ❤️ and caffeine</p>
+  </footer>
 </body>
 </html>
