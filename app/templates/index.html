@@ -4,81 +4,103 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{{ cv.name }} · Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/styles.css" />
   <script defer src="/static/app.js"></script>
 </head>
 <body>
-  <div class="bg-overlay"></div>
-  <header class="navbar">
-    <div class="brand">Martin Kirov</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-    </nav>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1 class="glow">{{ cv.name }}</h1>
+      <h2>{{ cv.headline }}</h2>
+      <p class="tagline">Uniting knowledge and curiosity into real-world impact.</p>
+      <div class="links">
+        <a href="mailto:{{ cv.email }}">Email</a>
+        <a href="{{ cv.github }}" target="_blank" rel="noopener">GitHub</a>
+        <a href="tel:{{ cv.phone | replace(' ', '') }}">{{ cv.phone }}</a>
+      </div>
+    </div>
   </header>
 
-  <section class="hero">
-    <h1 class="fade-in">Hi, I’m <span>Martin Kirov</span></h1>
-    <h2 class="typewriter">System Administrator · Blockchain Enthusiast · Automation Developer</h2>
-    <p class="fade-in-delayed">
-      I love experimenting with technology, scripting automation, building cloud systems and exploring blockchain infrastructure.  
-      Always curious. Always learning. Always optimizing.
-    </p>
-    <div class="links fade-in-delayed">
-      <a href="mailto:martinkirov9803@gmail.com" class="btn">📧 Email</a>
-      <a href="https://github.com/martok9803" target="_blank" class="btn outline">💻 GitHub</a>
-    </div>
+  <!-- ABOUT -->
+  <section class="about">
+    <h2>About Me</h2>
+    {% for line in cv.summary %}
+      <p>{{ line }}</p>
+    {% endfor %}
   </section>
 
-  <section id="about" class="card fade-up">
-    <h3>About Me</h3>
-    <p>Born on <strong>2 March 1998</strong> in Plovdiv, Bulgaria.  
-       Passionate about Linux & Windows systems, networking, scripting, and blockchain technologies.  
-       I enjoy automating trading strategies, experimenting with encryption and understanding how distributed systems really work.</p>
+  <!-- CAREER VISION -->
+  <section class="career">
+    <h2>Career Vision</h2>
+    <p>{{ cv.career_goal }}</p>
+    <p><em>{{ cv.mindset }}</em></p>
   </section>
 
-  <section id="experience" class="card fade-up">
-    <h3>Experience</h3>
+  <!-- EXPERIENCE -->
+  <section id="experience" class="experience">
+    <h2>Experience</h2>
     <div class="timeline">
+      {% for job in cv.experience %}
       <div class="job">
-        <h4>WiPro Services · Vienna (Nov 2024 – Sept 2025)</h4>
-        <p>Administered Windows & Linux infrastructure for a hotel network with 80+ users.  
-        Managed Active Directory, GPOs, VLANs, firewalls, and ensured GDPR-compliant security and backup strategies.</p>
+        <div class="job-header">
+          <h3>{{ job.company }}</h3>
+          <span class="meta">{{ job.role }} · {{ job.location }}</span>
+          <span class="dates">{{ job.start }} – {{ job.end }}</span>
+        </div>
+        <ul class="bullets">
+          {% for h in job.highlights %}
+          <li>{{ h }}</li>
+          {% endfor %}
+        </ul>
       </div>
-      <div class="job">
-        <h4>WorkNomads · Sofia (Feb 2024 – Oct 2024)</h4>
-        <p>Built multi-VLAN networks, configured SALTO access control, and optimized firewall traffic and QoS policies.  
-        Improved uptime and security through proactive monitoring and automation scripts.</p>
-      </div>
-      <div class="job">
-        <h4>Sutherland · Sofia (Jul 2023 – Jan 2024)</h4>
-        <p>Technical support for mesh networks (Eero). Helped users configure Wi-Fi, integrate IoT devices, and troubleshoot connectivity issues.</p>
-      </div>
+      {% endfor %}
     </div>
   </section>
 
-  <section id="projects" class="card fade-up">
-    <h3>Featured Projects</h3>
-    <div class="projects">
-      <a class="project" href="https://github.com/martok9803/face-verify-web" target="_blank">
-        <h4>🧠 Face Verify Web</h4>
-        <p>Flask-based face-recognition web app — minimal, educational, and fun.</p>
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      {% for p in cv.projects %}
+      <a class="project-card" href="{{ p.url }}" target="_blank" rel="noopener">
+        <h4>{{ p.name }}</h4>
+        <p>{{ p.description }}</p>
+        <span class="arrow">→</span>
       </a>
-      <a class="project" href="https://github.com/martok9803/sol-bundle" target="_blank">
-        <h4>💎 Sol Bundle</h4>
-        <p>Jito bundling scripts for advanced Solana traders — performance and automation.</p>
-      </a>
-      <a class="project" href="https://github.com/martok9803/Terraform-For-Cloud-State-Management" target="_blank">
-        <h4>☁️ Terraform Cloud Automation</h4>
-        <p>Experimenting with AWS and Terraform for state management and automation pipelines.</p>
-      </a>
+      {% endfor %}
     </div>
+  </section>
+
+  <!-- BACKGROUND / EDUCATION -->
+  <section class="background">
+    <h2>Background & Education</h2>
+    <ul class="pill-list">
+      {% for e in cv.education %}<li>{{ e }}</li>{% endfor %}
+    </ul>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="languages">
+    <h2>Languages</h2>
+    <ul class="pill-list">
+      {% for l in cv.languages %}<li>{{ l }}</li>{% endfor %}
+    </ul>
+  </section>
+
+  <!-- INTERESTS -->
+  <section class="interests">
+    <h2>Beyond Technology</h2>
+    {% for s in cv.interests %}
+      <p>{{ s }}</p>
+    {% endfor %}
   </section>
 
   <footer>
-    <p>© 2025 Martin Kirov — Crafted with ❤️ and caffeine</p>
+    <p>© {{ now().year if now else '2025' }} · Built by <strong>{{ cv.name }}</strong> · {{ cv.location }}</p>
   </footer>
 </body>
 </html>

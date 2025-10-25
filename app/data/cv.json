@@ -1,80 +1,94 @@
 {
   "name": "Martin Kirov",
-  "handle": "martok9803",
-  "title": "System Engineer · Linux/Windows · DevOps",
   "location": "Plovdiv, Bulgaria",
   "email": "martinkirov9803@gmail.com",
   "phone": "+359897833385",
   "github": "https://github.com/martok9803",
-  "website": "https://github.com/martok9803",
-  "about": {
-    "dob": "1998-03-02"
-  },
-  "summary": "Hands-on system engineer (Linux/Windows) who loves coding, scripting, and automation. I build reliable services, wire up clean networks, and secure systems against misconfigurations and exploits. I’m deeply curious about cloud infrastructure (Terraform/AWS), trading automation, and how blockchains work under the hood. Calm under pressure, obsessed with learning, and I prefer repeatable, containerized deployments with solid observability.",
+
+  "headline": "System Administration · Cloud · Automation · Blockchain",
+  "summary": [
+    "I’m focused on uniting everything I’ve learned and applying it in a professional environment.",
+    "I love Python scripting, Linux, cloud infrastructure, and blockchain technologies.",
+    "I’m interested in face and behavior recognition as a key part of the future of human–machine interaction.",
+    "I believe post-quantum encryption will soon be essential as new algorithms emerge.",
+    "Curious by nature — I value my time with friends and in nature, and I try to elevate what I know every day."
+  ],
+
+  "career_goal": "Join a company that values strong talent and gives freedom to the mind and creativity — where innovation is encouraged and ideas can grow.",
+
+  "mindset": "I embrace stress and problems because they’re the driving force of progress. As some anthropologists say, humans are meant to face pressure — those who turn it into positive momentum win (natural selection).",
+
+  "languages": ["Bulgarian (native)", "English (fluent)", "French (conversational)"],
+  "education": [
+    "Language High School – Pazardzhik (Bulgarian/English/French)",
+    "Electronics (former student), Technical University of Sofia"
+  ],
+
+  "interests": [
+    "Fitness, mountain hiking and camping across Bulgaria — in all seasons",
+    "Automation, distributed systems, security, encryption",
+    "Experimenting with cloud + blockchain tooling"
+  ],
+
+  "projects": [
+    {
+      "name": "Face Verify Web",
+      "url": "https://github.com/martok9803/face-verify-web",
+      "description": "Minimal Flask-based face recognition web app — educational starter for CV/ML curious engineers."
+    },
+    {
+      "name": "Sol Bundle",
+      "url": "https://github.com/martok9803/sol-bundle",
+      "description": "Jito bundling automation for advanced Solana traders; focus on performance and reliability."
+    },
+    {
+      "name": "Terraform for Cloud State Management",
+      "url": "https://github.com/martok9803/Terraform-For-Cloud-State-Management",
+      "description": "Experiments with AWS + Terraform for reproducible infrastructure and state management."
+    }
+  ],
+
   "experience": [
     {
-      "company": "WiProServices",
-      "role": "System Administration (Win/Linux)",
-      "period": "Nov 2024 – Sep 2025",
+      "company": "WiPro Services",
+      "role": "System Administration (Windows/Linux)",
       "location": "Vienna, Austria",
+      "start": "Nov 2024",
+      "end": "Sept 2025",
       "highlights": [
-        "Owned Windows-based infra for hotel complex (~80 users) across multiple VLANs.",
-        "Administered AD DS, DNS, DHCP, GPO; file/print services, updates, and backups.",
-        "Hardened access policies, password/GPO baselines; ensured GDPR-aligned logging.",
-        "Managed VLAN segmentation, L3 switching, site VPN tunnels, and firewall logging."
+        "Full support and administration of Windows-based infrastructure for a hotel complex (80+ active users, several VLAN segments).",
+        "Active Directory: user lifecycle, OU structure, GPOs, logon scripts, roaming profiles, security policies; integrations with Exchange, file servers and internal apps.",
+        "Windows Server (2019/2022): AD DS, DNS, DHCP, Group Policy, Print Services; update strategy, backups, performance monitoring.",
+        "Password, access and security policies aligned with GDPR requirements.",
+        "Network administration: VLAN segmentation (guests, staff, admin, POS), L3 switches, VPN tunnels; firewall policies, internet access control, QoS, logging."
       ]
     },
     {
       "company": "WorkNomads",
-      "role": "SysAdmin (Windows)",
-      "period": "Feb 2024 – Oct 2024",
+      "role": "Windows System Administrator",
       "location": "Sofia, Bulgaria",
+      "start": "Feb 2024",
+      "end": "Oct 2024",
       "highlights": [
-        "Designed multi-VLAN network (guest/admin/IP-telephony/CCTV) with QoS.",
-        "Integrated SALTO access control and electronic locks with directory services.",
-        "Ran DHCP/DNS, file servers, backups & monitoring; tuned Wi-Fi and PoE stacks.",
-        "Investigated firewall logs to prevent misuse and maintain service health."
+        "Designed and deployed multi-VLAN networks with distinct access levels (guests, admin, IP telephony, CCTV, etc.).",
+        "Integrated and configured SALTO access control (electronic locks and permissions).",
+        "Managed server services: DHCP, DNS, file/app servers, backups and monitoring.",
+        "Firewall log analysis and filtering to prevent attacks and unauthorized access.",
+        "Wi-Fi/LAN operations: switches, routers, APs, PoE devices; QoS tuning and throughput optimization."
       ]
     },
     {
       "company": "Sutherland",
-      "role": "Technical Support Specialist — Networking",
-      "period": "Jul 2023 – Jan 2024",
+      "role": "Technical Support Specialist – Networking",
       "location": "Sofia, Bulgaria",
+      "start": "Jul 2023",
+      "end": "Jan 2024",
       "highlights": [
-        "Remote setup & troubleshooting for Eero mesh networks and smart devices.",
-        "Resolved connectivity/performance issues across varied ISP environments.",
-        "Documented fixes and kept rigorous CRM notes to accelerate future cases."
+        "Phone and online support for first-time mesh setup and device onboarding.",
+        "Eero networks: SSID, bridge/router modes, ISP integration and troubleshooting (latency, stability, coverage).",
+        "Helped connect smart devices (cameras, assistants, TVs) to Wi-Fi and improved coverage plans.",
+        "Clear documentation and CRM ticketing for traceable, high-quality support."
       ]
     }
-  ],
-  "projects": [
-    {
-      "name": "face-verify-web",
-      "desc": "Face recognition for newbies: simple web UI to capture/compare faces and demo verification flows.",
-      "link": "https://github.com/martok9803/face-verify-web"
-    },
-    {
-      "name": "sol-bundle",
-      "desc": "Jito bundling for pro traders: multi-wallet Solana bundler with tips, slippage, and searcher integration.",
-      "link": "https://github.com/martok9803/sol-bundle"
-    },
-    {
-      "name": "Terraform-For-Cloud-State-Management",
-      "desc": "Experiments with AWS + Terraform state management patterns (remote backends, locking, workflows).",
-      "link": "https://github.com/martok9803/Terraform-For-Cloud-State-Management"
-    },
-    {
-      "name": "cv-webapp-docker",
-      "desc": "This interactive CV (Flask + Gunicorn), containerized and deployed behind Caddy with HTTPS.",
-      "link": "https://github.com/martok9803"
-    }
-  ],
-  "interests": [
-    "Coding & scripting (Python/Bash) for automation",
-    "Cloud & IaC (AWS, Terraform, Docker/Compose)",
-    "Trading automation & market data tooling",
-    "Blockchain internals (ERC-20 & Solana), wallets & ops",
-    "Security hardening and incident prevention"
   ]
 }
