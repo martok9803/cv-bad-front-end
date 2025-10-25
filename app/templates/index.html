@@ -1,106 +1,25 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{{ cv.name }} · Portfolio</title>
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>{{ cv.name }}</h1>
+  <p class="headline">{{ cv.headline }}</p>
+  <p class="lede">Uniting knowledge and curiosity into real-world impact.</p>
+  <div class="cta">
+    <a class="btn" href="/projects">View Projects</a>
+    <a class="btn secondary" href="/experience">Work Experience</a>
+  </div>
+</section>
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/styles.css" />
-  <script defer src="/static/app.js"></script>
-</head>
-<body>
-  <!-- HERO -->
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="content">
-      <h1 class="glow">{{ cv.name }}</h1>
-      <h2>{{ cv.headline }}</h2>
-      <p class="tagline">Uniting knowledge and curiosity into real-world impact.</p>
-      <div class="links">
-        <a href="mailto:{{ cv.email }}">Email</a>
-        <a href="{{ cv.github }}" target="_blank" rel="noopener">GitHub</a>
-        <a href="tel:{{ cv.phone | replace(' ', '') }}">{{ cv.phone }}</a>
-      </div>
-    </div>
-  </header>
+<section class="card">
+  <h2>About Me</h2>
+  {% for line in cv.summary %}
+  <p>{{ line }}</p>
+  {% endfor %}
+</section>
 
-  <!-- ABOUT -->
-  <section class="about">
-    <h2>About Me</h2>
-    {% for line in cv.summary %}
-      <p>{{ line }}</p>
-    {% endfor %}
-  </section>
-
-  <!-- CAREER VISION -->
-  <section class="career">
-    <h2>Career Vision</h2>
-    <p>{{ cv.career_goal }}</p>
-    <p><em>{{ cv.mindset }}</em></p>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="experience">
-    <h2>Experience</h2>
-    <div class="timeline">
-      {% for job in cv.experience %}
-      <div class="job">
-        <div class="job-header">
-          <h3>{{ job.company }}</h3>
-          <span class="meta">{{ job.role }} · {{ job.location }}</span>
-          <span class="dates">{{ job.start }} – {{ job.end }}</span>
-        </div>
-        <ul class="bullets">
-          {% for h in job.highlights %}
-          <li>{{ h }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endfor %}
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="projects">
-    <h2>Featured Projects</h2>
-    <div class="project-grid">
-      {% for p in cv.projects %}
-      <a class="project-card" href="{{ p.url }}" target="_blank" rel="noopener">
-        <h4>{{ p.name }}</h4>
-        <p>{{ p.description }}</p>
-        <span class="arrow">→</span>
-      </a>
-      {% endfor %}
-    </div>
-  </section>
-
-  <!-- BACKGROUND / EDUCATION -->
-  <section class="background">
-    <h2>Background & Education</h2>
-    <ul class="pill-list">
-      {% for e in cv.education %}<li>{{ e }}</li>{% endfor %}
-    </ul>
-  </section>
-
-  <!-- LANGUAGES -->
-  <section class="languages">
-    <h2>Languages</h2>
-    <ul class="pill-list">
-      {% for l in cv.languages %}<li>{{ l }}</li>{% endfor %}
-    </ul>
-  </section>
-
-  <!-- INTERESTS -->
-  <section class="interests">
-    <h2>Beyond Technology</h2>
-    {% for s in cv.interests %}
-      <p>{{ s }}</p>
-    {% endfor %}
-  </section>
-
-  <footer>
-    <p>© {{ now().year if now else '2025' }} · Built by <strong>{{ cv.name }}</strong> · {{ cv.location }}</p>
-  </footer>
-</body>
-</html>
+<section class="card">
+  <h2>Career Vision</h2>
+  <p>{{ cv.career_goal }}</p>
+  <p><em>{{ cv.mindset }}</em></p>
+</section>
+{% endblock %}

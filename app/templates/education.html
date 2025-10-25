@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h1>Education</h1>
+  <ul class="pill-list">
+    {% for e in cv.education %}
+    <li>{{ e }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2 class="mt">Languages</h2>
+  <ul class="pill-list">
+    {% for l in cv.languages %}
+    <li>{{ l }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2 class="mt">Interests</h2>
+  {% for s in cv.interests %}
+  <p>{{ s }}</p>
+  {% endfor %}
+</section>
+{% endblock %}

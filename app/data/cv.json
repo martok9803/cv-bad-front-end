@@ -5,27 +5,26 @@
   "phone": "+359897833385",
   "github": "https://github.com/martok9803",
 
-  "headline": "System Administration · Cloud · Automation · Blockchain",
+  "headline": "Systems · Cloud · Automation · Blockchain",
   "summary": [
     "I’m focused on uniting everything I’ve learned and applying it in a professional environment.",
-    "I love Python scripting, Linux, cloud infrastructure, and blockchain technologies.",
+    "I enjoy Python scripting, Linux, cloud infrastructure, and blockchain technologies.",
     "I’m interested in face and behavior recognition as a key part of the future of human–machine interaction.",
     "I believe post-quantum encryption will soon be essential as new algorithms emerge.",
-    "Curious by nature — I value my time with friends and in nature, and I try to elevate what I know every day."
+    "Curious by nature — I value time with friends and in nature, and I try to elevate what I know every day."
   ],
 
-  "career_goal": "Join a company that values strong talent and gives freedom to the mind and creativity — where innovation is encouraged and ideas can grow.",
+  "career_goal": "Join a company that values skill, creativity, and freedom of thought — where good ideas are given room to grow.",
 
-  "mindset": "I embrace stress and problems because they’re the driving force of progress. As some anthropologists say, humans are meant to face pressure — those who turn it into positive momentum win (natural selection).",
+  "mindset": "I treat pressure as practice. Challenges create movement; the people who turn stress into progress are the ones who grow.",
 
   "languages": ["Bulgarian (native)", "English (fluent)", "French (conversational)"],
   "education": [
-    "Language High School – Pazardzhik (Bulgarian/English/French)",
-    "Electronics (former student), Technical University of Sofia"
+    "Language High School – Pazardzhik (Bulgarian / English / French)"
   ],
 
   "interests": [
-    "Fitness, mountain hiking and camping across Bulgaria — in all seasons",
+    "Fitness, mountain hiking and camping across Bulgaria (all seasons)",
     "Automation, distributed systems, security, encryption",
     "Experimenting with cloud + blockchain tooling"
   ],
@@ -56,11 +55,11 @@
       "start": "Nov 2024",
       "end": "Sept 2025",
       "highlights": [
-        "Full support and administration of Windows-based infrastructure for a hotel complex (80+ active users, several VLAN segments).",
-        "Active Directory: user lifecycle, OU structure, GPOs, logon scripts, roaming profiles, security policies; integrations with Exchange, file servers and internal apps.",
-        "Windows Server (2019/2022): AD DS, DNS, DHCP, Group Policy, Print Services; update strategy, backups, performance monitoring.",
-        "Password, access and security policies aligned with GDPR requirements.",
-        "Network administration: VLAN segmentation (guests, staff, admin, POS), L3 switches, VPN tunnels; firewall policies, internet access control, QoS, logging."
+        "Windows-based infrastructure for a hotel complex (80+ users; multiple VLAN segments).",
+        "Active Directory: user lifecycle, OUs, GPOs, logon scripts, roaming profiles, security policies; integrations with Exchange, file servers, internal apps.",
+        "Windows Server 2019/2022: AD DS, DNS, DHCP, Group Policy, Print Services; updates, backups, performance monitoring.",
+        "Policies aligned with GDPR requirements.",
+        "Networking: VLANs (guests, staff, admin, POS), L3 switches, site-to-site VPNs; firewall policies, internet access control, QoS, logging."
       ]
     },
     {
@@ -70,11 +69,11 @@
       "start": "Feb 2024",
       "end": "Oct 2024",
       "highlights": [
-        "Designed and deployed multi-VLAN networks with distinct access levels (guests, admin, IP telephony, CCTV, etc.).",
-        "Integrated and configured SALTO access control (electronic locks and permissions).",
-        "Managed server services: DHCP, DNS, file/app servers, backups and monitoring.",
+        "Designed multi-VLAN networks with distinct access (guests, admin, VoIP, CCTV).",
+        "Integrated/configured SALTO access control (electronic locks).",
+        "Managed servers: DHCP, DNS, file/app servers, backups and monitoring.",
         "Firewall log analysis and filtering to prevent attacks and unauthorized access.",
-        "Wi-Fi/LAN operations: switches, routers, APs, PoE devices; QoS tuning and throughput optimization."
+        "Wi-Fi/LAN: switches, routers, APs, PoE devices; QoS tuning and throughput optimization."
       ]
     },
     {
@@ -84,9 +83,9 @@
       "start": "Jul 2023",
       "end": "Jan 2024",
       "highlights": [
-        "Phone and online support for first-time mesh setup and device onboarding.",
+        "Phone/online support for mesh network setup and device onboarding.",
         "Eero networks: SSID, bridge/router modes, ISP integration and troubleshooting (latency, stability, coverage).",
-        "Helped connect smart devices (cameras, assistants, TVs) to Wi-Fi and improved coverage plans.",
+        "Helped connect smart devices (cameras, assistants, TVs) to Wi-Fi and improve coverage plans.",
         "Clear documentation and CRM ticketing for traceable, high-quality support."
       ]
     }

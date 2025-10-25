@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h1>Projects</h1>
+  <div class="grid">
+    {% for p in cv.projects %}
+    <a class="tile" href="{{ p.url }}" target="_blank" rel="noopener">
+      <h3>{{ p.name }}</h3>
+      <p>{{ p.description }}</p>
+      <span class="arrow">→</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

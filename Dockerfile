@@ -20,4 +20,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 
 ENV APP_ENV=prod
 EXPOSE 8000
-CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:8000", "wsgi:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "wsgi:app"]
+
