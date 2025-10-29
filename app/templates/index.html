@@ -1,86 +1,25 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Martin Kirov · System Engineer</title>
-
-  <!-- Modern fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Headline: Plus Jakarta Sans | Accent monospace: JetBrains Mono -->
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="/static/styles.css" />
-  <script defer src="/static/app.js"></script>
-</head>
-<body>
-  <div class="container fade-in">
-
-    <header class="hero">
-      <h1 class="brand-gradient">Martin Kirov</h1>
-      <p class="subtitle">System Engineer · DevOps · Blockchain Enthusiast</p>
-
-      <!-- Contact chips -->
-      <div class="chips">
-        <a class="chip" href="mailto:{{ cv.email }}">✉️ {{ cv.email }}</a>
-        <a class="chip" href="tel:{{ cv.phone | replace(' ', '') }}">📞 {{ cv.phone }}</a>
-        <a class="chip" href="{{ cv.github }}" target="_blank" rel="noopener">★ GitHub</a>
-      </div>
-
-      <p class="muted hero-meta">{{ cv.location }} · Born: {{ cv.about.dob }}</p>
-      <div class="hero-glow" aria-hidden="true"></div>
-    </header>
-
-    <!-- ABOUT -->
-    <section class="summary glass reveal">
-      <h2>About Me</h2>
-      <p>{{ cv.summary }}</p>
-      {% if cv.interests %}
-      <ul class="bullets compact">
-        {% for i in cv.interests %}
-        <li>{{ i }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="experience">
-      <h2>Experience</h2>
-
-      {% for job in cv.experience %}
-      <div class="card glass lift reveal">
-        <h3 class="card-title">{{ job.company }}</h3>
-        <p class="meta"><strong>{{ job.role }}</strong> · {{ job.period }} · {{ job.location }}</p>
-        {% if job.highlights %}
-        <ul class="bullets">
-          {% for bullet in job.highlights %}
-          <li>{{ bullet }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </div>
-      {% endfor %}
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="projects">
-      <h2>Highlighted Projects</h2>
-      <div class="grid">
-        {% for project in cv.projects %}
-        <a href="{{ project.link }}" target="_blank" class="project glass tilt reveal">
-          <h3 class="project-title">{{ project.name }}</h3>
-          <p>{{ project.desc }}</p>
-          <span class="link">Open →</span>
-        </a>
-        {% endfor %}
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2025 · Built by Martin Kirov · Hosted on EC2 with Docker & Caddy</p>
-    </footer>
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>{{ cv.name }}</h1>
+  <p class="headline">{{ cv.headline }}</p>
+  <p class="lede">Uniting knowledge and curiosity into real-world impact.</p>
+  <div class="cta">
+    <a class="btn" href="/projects">View Projects</a>
+    <a class="btn secondary" href="/experience">Work Experience</a>
   </div>
-</body>
-</html>
+</section>
+
+<section class="card">
+  <h2>About Me</h2>
+  {% for line in cv.summary %}
+  <p>{{ line }}</p>
+  {% endfor %}
+</section>
+
+<section class="card">
+  <h2>Career Vision</h2>
+  <p>{{ cv.career_goal }}</p>
+  <p><em>{{ cv.mindset }}</em></p>
+</section>
+{% endblock %}

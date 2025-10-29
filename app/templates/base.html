@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ cv.name }} · {{ title if title else 'Portfolio' }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="/">{{ cv.name }}</a>
+      <nav class="nav">
+        <a href="/" class="{{ 'active' if request.path=='/' else '' }}">Home</a>
+        <a href="/experience" class="{{ 'active' if request.path.startswith('/experience') else '' }}">Experience</a>
+        <a href="/projects" class="{{ 'active' if request.path.startswith('/projects') else '' }}">Projects</a>
+        <a href="/education" class="{{ 'active' if request.path.startswith('/education') else '' }}">Education</a>
+      </nav>
+      <button id="themeToggle" class="toggle" aria-label="Toggle theme">🌓</button>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© {{ cv.name }} — {{ cv.location }}</div>
+      <div class="contacts">
+        <a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
+        <span>·</span>
+        <a href="{{ cv.github }}" target="_blank" rel="noopener">GitHub</a>
+        <span>·</span>
+        <a href="tel:{{ cv.phone | replace(' ', '') }}">{{ cv.phone }}</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

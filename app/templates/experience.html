@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h1>Experience</h1>
+  <div class="timeline">
+    {% for job in cv.experience %}
+    <article class="job">
+      <header class="job-head">
+        <h3>{{ job.company }}</h3>
+        <div class="meta">
+          <span>{{ job.role }}</span> · <span>{{ job.location }}</span>
+          <span class="dates">{{ job.start }} – {{ job.end }}</span>
+        </div>
+      </header>
+      <ul class="bullets">
+        {% for h in job.highlights %}
+        <li>{{ h }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
