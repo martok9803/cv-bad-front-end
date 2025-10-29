@@ -18,7 +18,8 @@
       "period": "Nov 2024 – Sep 2025",
       "location": "Vienna, Austria",
       "highlights": [
-        "Owned Windows-based infra for hotel complex (~80 users) across multiple VLANs.",
+        "Developed and maintained infrastructure-as-code for system updates, user management.",
+        "Automated Linux server configuration and package management using Ansible playbooks.",
         "Administered AD DS, DNS, DHCP, GPO; file/print services, updates, and backups.",
         "Hardened access policies, password/GPO baselines; ensured GDPR-aligned logging.",
         "Managed VLAN segmentation, L3 switching, site VPN tunnels, and firewall logging."
@@ -68,6 +69,11 @@
       "name": "cv-webapp-docker",
       "desc": "This interactive CV (Flask + Gunicorn), containerized and deployed behind Caddy with HTTPS.",
       "link": "https://github.com/martok9803"
+    },
+    {
+      "name": "kyc-faceauth-dev",
+      "desc": "Serverless KYC / FaceAuth demo built on AWS — Terraform IaC deploying Lambda (Docker), API Gateway, DynamoDB, S3, and Step Functions via GitHub Actions OIDC. Includes endpoints for liveness, presigned uploads, and mock KYC flows.",
+      "link": "https://github.com/martok9803/kyc-faceauth-dev"
     }
   ],
   "interests": [
